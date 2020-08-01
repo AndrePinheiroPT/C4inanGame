@@ -60,10 +60,30 @@ html{
 .button{
     border: none;
     height: 50px;
-    width: 130px;
+    width: 140px;
     font: normal 15pt lilita one;
     margin: 4px;
     transition: 1s;
+}
+
+@keyframes message{
+    0% {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    100% {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+@keyframes toy{
+    0% {
+        margin-top: 80px;
+    }
+    100% {
+        margin-top: 40px;
+    }
 }
 
 .message{
@@ -81,6 +101,8 @@ html{
     font-size: 12pt;
     padding: 10px;
     border-radius: 10px;
+
+    animation: message 2s;
 }
 
 .black-window{
@@ -105,6 +127,7 @@ html{
     margin-bottom: auto;
     height: 290px;
     width: 180px;
+    animation: toy 2s;
 }
 
 .button:disabled{
