@@ -10,7 +10,8 @@ import { startGame,
     sadDOM,
     scoreDiv,
     coinDiv,
-    hightscoreDiv
+    hightscoreDiv,
+    gameoverTitle
 } from './elements.js'
 
 let score = 0
@@ -177,6 +178,8 @@ class Game{
         coins >= 10 ? continueGame.disabled = false : continueGame.disabled = true
         loading = 0
         clearInterval(intervalId)
+        gameHome.removeChild(image)
+        gameHome.appendChild(gameoverTitle)
         gameHome.removeChild(gameButtons)
         gameHome.appendChild(reloadButtons)
     }

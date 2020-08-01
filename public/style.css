@@ -28,6 +28,10 @@ html{
     top: 30px;
 }
 
+.gameover{
+    padding: 50px 10px 50px 10px;
+}
+
 .gear{
     height: 50px;
     width: 50px;

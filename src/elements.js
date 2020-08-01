@@ -11,6 +11,7 @@ export const reloadButtons = document.createElement('div')
 export const scoreDiv = document.createElement('div')
 export const blackWindow = document.createElement('div')
 
+export const gameoverTitle = document.createElement('h2')
 export const singleTitle = document.createElement('h4')
 
 export const image = document.createElement('img')
@@ -30,6 +31,7 @@ export const hightscoreDiv = document.querySelector('.hightScore')
 toy.setAttribute('src', '../public/img/pos1.png')
 
 reloadGame.setAttribute('class', 'button medium')
+gameoverTitle.setAttribute('class', 'gameover')
 continueGame.setAttribute('class', 'button gold continue')
 scoreDiv.setAttribute('class', 'score')
 angryDOM.setAttribute('class', 'button low')
@@ -42,6 +44,7 @@ informationContent.setAttribute('class', 'information-content')
 blackWindow.setAttribute('class', 'black-window')
 singleTitle.setAttribute('class', 'single-title')
 
+gameoverTitle.appendChild(document.createTextNode('FIM DE JOGO'))
 angryDOM.appendChild(document.createTextNode('Raiva'))
 happyDOM.appendChild(document.createTextNode('Alegria'))
 sadDOM.appendChild(document.createTextNode('Tristeza'))
