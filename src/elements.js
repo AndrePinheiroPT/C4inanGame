@@ -70,4 +70,8 @@ gameButtons.appendChild(sadDOM)
 reloadButtons.appendChild(reloadGame)
 reloadButtons.appendChild(continueGame)
 
+bronzeButton.disabled = true
+blueButton.disabled = true
+purpleButton.disabled = true
+redButton.disabled = true
 

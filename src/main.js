@@ -11,7 +11,11 @@ import { startGame,
     scoreDiv,
     coinDiv,
     hightscoreDiv,
-    gameoverTitle
+    gameoverTitle,
+    bronzeButton,
+    blueButton,
+    purpleButton,
+    redButton
 } from './elements.js'
 
 import { disabledAnimations } from './messages.js'
@@ -121,6 +125,21 @@ class Game{
     updateHightscore(command){
         if(score > hightscore){
             hightscore = score
+
+            switch(hightscore){
+                case 80:
+                    bronzeButton.disabled = false
+                    break
+                case 180:
+                    blueButton.disabled = false
+                    break
+                case 380:
+                    purpleButton.disabled = false
+                    break
+                case 600:
+                    redButton.disabled = false
+                    break
+            }
 
             if(disabledAnimations){
                 hightscoreDiv.innerHTML = `Maximo<br> ${score}`

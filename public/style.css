@@ -261,30 +261,6 @@ html{
     background-size: 600%, 400%;
     animation: animation-moviment 5s ease-in-out infinite;
 }
-.backGround-bronze-none{
-    color: white;
-    font: normal 16pt lilita one;
-    background: linear-gradient(-60deg, #905923, #a46628, #b9722d, #cd7f32, #d28c47);
-    background-size: 600%, 400%;
-}
-.backGround-blue-none{
-    color: white;
-    font: normal 16pt lilita one;
-    background: linear-gradient(-60deg, #2E77BB, #1D8ECE, #27AEE3, #9BD4F5, #6CC4EE);
-    background-size: 600%, 400%;
-}
-.backGround-purple-none{
-    color: white;
-    font: normal 16pt lilita one;
-    background: linear-gradient(-60deg, #4F2671, #7D44AA, #A971D6, #DAABF7, #E5BDFF);
-    background-size: 600%, 400%;
-}
-.backGround-red-none{
-    color: white;
-    font: normal 16pt lilita one;
-    background: linear-gradient(-60deg, #FFD300, #FF6C33, #D80044, #AD054F, #711C58);
-    background-size: 600%, 400%;
-}
 
 .black-button{
     text-align: center;
@@ -308,6 +284,10 @@ html{
     border-radius: 20px;
 }
 
+.bronze-button:disabled{
+    opacity: 0.4;
+}
+
 .blue-button{
     text-align: center;
     border: none;
@@ -319,6 +299,11 @@ html{
     margin: 2px;
     border-radius: 20px
 }
+
+.blue-button:disabled{
+    opacity: 0.4;
+}
+
 .purple-button{
     text-align: center;
     border: none;
@@ -330,6 +315,11 @@ html{
     margin: 2px;
     border-radius: 20px
 }
+
+.purple-button:disabled{
+    opacity: 0.4;
+}
+
 .red-button{
     text-align: center;
     border: none;
@@ -340,6 +330,10 @@ html{
     width: 30px;
     margin: 2px;
     border-radius: 20px
+}
+
+.red-button:disabled{
+    opacity: 0.4;
 }
 
 @keyframes animation-moviment{
