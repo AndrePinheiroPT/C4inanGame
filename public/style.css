@@ -22,6 +22,68 @@ html{
     margin-left: 10px;
 }
 
+.login-toy{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: auto;
+    height: 290px;
+    width: 180px;
+    animation: toy 2s;
+}
+
+.form-home{
+    position: absolute;
+    height: 255px;
+    background-color: white;
+    padding: 10px;
+    color: black;
+    border-radius: 7px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 230px;
+}
+
+.login-title{
+    position: absolute;
+    top: 180px;
+    right: 170px;
+}
+
+.form-pack{
+    margin: 16px 0 10px 4px;
+}
+
+.simple-phrase{
+    font-size: 13pt;
+    margin-left: 5px;
+}
+
+.label-form{
+    padding: 9px 40px 9px 9px;
+    border-top-right-radius: 80px;
+    background-color: rgb(246, 246, 246);
+}
+
+.input-form{
+    border: none;
+    height: 35px;
+    padding: 0 0 0 9px;
+    width: 95%;
+    background-color: rgb(37, 37, 37);
+    font-family: lilita one;
+    font-size: 18pt;
+    color: white;
+}
+
 .information{
     border: none;
     height: 60px;
