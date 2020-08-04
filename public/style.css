@@ -3,6 +3,11 @@
     padding: 0;
 }
 
+html, body{
+    width: 100%;
+    height: 100%;
+}
+
 html{
     scroll-behavior: smooth;
     background-color: black;
@@ -11,7 +16,7 @@ html{
 }
 
 .title{
-    margin: 15px 0px 15px 0px;
+    padding: 10px 0px 10px 0px;
     color: white;
     text-align: left;
     margin-left: 10px;
@@ -26,6 +31,10 @@ html{
     position: absolute;
     right: 10px;
     top: 30px;
+}
+
+.gameover{
+    padding: 50px 10px 50px 10px;
 }
 
 .gear{
@@ -60,10 +69,21 @@ html{
 .button{
     border: none;
     height: 50px;
-    width: 130px;
+    width: 140px;
     font: normal 15pt lilita one;
     margin: 4px;
     transition: 1s;
+}
+
+@keyframes message{
+    0% {
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+    100% {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
 }
 
 .message{
@@ -81,6 +101,8 @@ html{
     font-size: 12pt;
     padding: 10px;
     border-radius: 10px;
+
+    animation: message 2s;
 }
 
 .black-window{
@@ -91,6 +113,11 @@ html{
     bottom: 0;
     background-image: url('./img/stars.jpg');
     opacity: 0.3;
+}
+
+.content-config{
+    font-size: 15pt;
+    text-align: center;
 }
 
 .c4inan-pos1{
@@ -105,6 +132,7 @@ html{
     margin-bottom: auto;
     height: 290px;
     width: 180px;
+    animation: toy 2s;
 }
 
 .button:disabled{
@@ -141,6 +169,24 @@ html{
 
 .continue:disabled{
     opacity: 0.4;
+}
+
+.information-content{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-top: 200px;
+    background-color: white;
+    height: 200px;
+    color: black;
+    font-size: 12pt;
+    padding: 10px;
+    border-radius: 10px;
+    animation: message 2s;
 }
 
 .footer{
@@ -187,98 +233,110 @@ html{
     transition: 0.5s;
 }
 
-div.Palet{
-    display: flex;
-    justify-content: center; 
-    align-items: center;
-    margin-top: 10px; 
-}
-
-body#BackGroundColor1{
+.backGround-bronze{
     color: white;
     font: normal 16pt lilita one;
     background: linear-gradient(-60deg, #905923, #a46628, #b9722d, #cd7f32, #d28c47);
     background-size: 600%, 400%;
-    animation: fundobutao 5s ease-in-out infinite;
+    animation: animation-moviment 5s ease-in-out infinite;
 }
-body#BackGroundColor2{
+.backGround-blue{
     color: white;
     font: normal 16pt lilita one;
     background: linear-gradient(-60deg, #2E77BB, #1D8ECE, #27AEE3, #9BD4F5, #6CC4EE);
     background-size: 600%, 400%;
-    animation: fundobutao 5s ease-in-out infinite;
+    animation: animation-moviment 5s ease-in-out infinite;
 }
-body#BackGroundColor3{
+.backGround-purple{
     color: white;
     font: normal 16pt lilita one;
     background: linear-gradient(-60deg, #4F2671, #7D44AA, #A971D6, #DAABF7, #E5BDFF);
     background-size: 600%, 400%;
-    animation: fundobutao 5s ease-in-out infinite;
+    animation: animation-moviment 5s ease-in-out infinite;
 }
-body#BackGroundColor4{
+.backGround-red{
     color: white;
     font: normal 16pt lilita one;
     background: linear-gradient(-60deg, #FFD300, #FF6C33, #D80044, #AD054F, #711C58);
     background-size: 600%, 400%;
-    animation: fundobutao 5s ease-in-out infinite;
+    animation: animation-moviment 5s ease-in-out infinite;
 }
 
-
-section#ColorButtons{
+.black-button{
     text-align: center;
-    background-color: white;
-    color: black;
-    border-radius: 7px;
-    padding: 15px;
-    width: auto;
-    margin: auto;
+    border: none;
+    background-color: black;
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+    border-radius: 20px;
 }
 
-button#Bronze{
+.bronze-button{
     text-align: center;
-    color: white;
     border: none;
     background: linear-gradient(-60deg, #905923, #a46628, #b9722d, #cd7f32, #d28c47);
     background-size: 600%, 400%;
-    animation: fundobutao 5s ease-in-out infinite;
-    height: 43px;
-    font: normal 15pt lilita one;
-    width: 220px;
+    animation: animation-moviment 5s ease-in-out infinite;
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+    border-radius: 20px;
 }
-button#Blue{
+
+.bronze-button:disabled{
+    opacity: 0.4;
+}
+
+.blue-button{
     text-align: center;
-    color: white;
     border: none;
     background: linear-gradient(-60deg, #2E77BB, #1D8ECE, #27AEE3, #9BD4F5, #6CC4EE);
     background-size: 600%, 400%;
-    animation: fundobutao 5s ease-in-out infinite;
-    height: 43px;
-    font: normal 15pt lilita one;
-    width: 220px;
+    animation: animation-moviment 5s ease-in-out infinite;
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+    border-radius: 20px
 }
-button#Purple{
+
+.blue-button:disabled{
+    opacity: 0.4;
+}
+
+.purple-button{
     text-align: center;
-    color: white;
     border: none;
     background: linear-gradient(-60deg, #4F2671, #7D44AA, #A971D6, #DAABF7, #E5BDFF);
     background-size: 600%, 400%;
-    animation: fundobutao 5s ease-in-out infinite;
-    height: 43px;
-    font: normal 15pt lilita one;
-    width: 220px;
+    animation: animation-moviment 5s ease-in-out infinite;
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+    border-radius: 20px
 }
-button#Red{
+
+.purple-button:disabled{
+    opacity: 0.4;
+}
+
+.red-button{
     text-align: center;
-    color: white;
     border: none;
     background: linear-gradient(-60deg, #FFD300, #FF6C33, #D80044, #FF6C33, #FFD300);
     background-size: 600%, 400%;
-    animation: fundobutao 5s ease-in-out infinite;
-    height: 43px;
-    font: normal 15pt lilita one;
-    width: 220px;
+    animation: animation-moviment 5s ease-in-out infinite;
+    height: 30px;
+    width: 30px;
+    margin: 2px;
+    border-radius: 20px
 }
-@keyframes fundobutao{
+
+.red-button:disabled{
+    opacity: 0.4;
+}
+
+@keyframes animation-moviment{
     0%{
         background-position: 0 50%;
     }
@@ -289,17 +347,12 @@ button#Red{
         background-position: 0 50%
     }
 }
-input#roxo{
-    background-color: rgb(212, 212, 212);
-    height: 43px;
-    border-radius: 7px;
-    font: normal 15pt lilita one;
-    margin-right: 10px;
-}
-input#dourado{
-    background-color: rgb(212, 212, 212);
-    height: 43px;
-    border-radius: 7px;
-    font: normal 15pt lilita one;
-    margin-right: 10px;
+
+@keyframes toy{
+    0% {
+        margin-top: 80px;
+    }
+    100% {
+        margin-top: 40px;
+    }
 }

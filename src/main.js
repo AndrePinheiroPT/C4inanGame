@@ -10,8 +10,15 @@ import { startGame,
     sadDOM,
     scoreDiv,
     coinDiv,
-    hightscoreDiv
+    hightscoreDiv,
+    gameoverTitle,
+    bronzeButton,
+    blueButton,
+    purpleButton,
+    redButton
 } from './elements.js'
+
+import { disabledAnimations } from './messages.js'
 
 let score = 0
 let hightscore = 0
@@ -105,9 +112,13 @@ class Game{
     updateCoins({ isGold }){
         if(isGold){
             coins++
-            coinDiv.innerHTML = `Moedas<br> ${coins}`
-            coinDiv.style.borderWidth = '15px'
-            setTimeout(() => coinDiv.style.borderWidth = '5px', 300)
+            if(disabledAnimations){
+                coinDiv.innerHTML = `Moedas<br> ${coins}`
+            }else{
+                coinDiv.innerHTML = `Moedas<br> ${coins}`
+                coinDiv.style.borderWidth = '15px'
+                setTimeout(() => coinDiv.style.borderWidth = '5px', 300)
+            }
         }
     }
 
@@ -115,9 +126,28 @@ class Game{
         if(score > hightscore){
             hightscore = score
 
-            hightscoreDiv.innerHTML = `Maximo<br> ${score}`
-            hightscoreDiv.style.borderWidth = '15px'
-            setTimeout(() => hightscoreDiv.style.borderWidth = '5px', 300)
+            switch(hightscore){
+                case 80:
+                    bronzeButton.disabled = false
+                    break
+                case 180:
+                    blueButton.disabled = false
+                    break
+                case 380:
+                    purpleButton.disabled = false
+                    break
+                case 600:
+                    redButton.disabled = false
+                    break
+            }
+
+            if(disabledAnimations){
+                hightscoreDiv.innerHTML = `Maximo<br> ${score}`
+            }else{
+                hightscoreDiv.innerHTML = `Maximo<br> ${score}`
+                hightscoreDiv.style.borderWidth = '15px'
+                setTimeout(() => hightscoreDiv.style.borderWidth = '5px', 300)
+            }
         }
     }
 
@@ -130,9 +160,13 @@ class Game{
         }
 
         score++
-        scoreDiv.innerHTML = `Pontuação: ${score}`
-        scoreDiv.style.borderWidth = '15px'
-        setTimeout(() => scoreDiv.style.borderWidth = '5px', 300)
+        if(disabledAnimations){
+            scoreDiv.innerHTML = `Pontuação: ${score}`
+        }else{
+            scoreDiv.innerHTML = `Pontuação: ${score}`
+            scoreDiv.style.borderWidth = '15px'
+            setTimeout(() => scoreDiv.style.borderWidth = '5px', 300)
+        }
     }
 
     updateImages(command){
@@ -177,6 +211,8 @@ class Game{
         coins >= 10 ? continueGame.disabled = false : continueGame.disabled = true
         loading = 0
         clearInterval(intervalId)
+        gameHome.removeChild(image)
+        gameHome.appendChild(gameoverTitle)
         gameHome.removeChild(gameButtons)
         gameHome.appendChild(reloadButtons)
     }
