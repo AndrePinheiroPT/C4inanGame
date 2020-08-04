@@ -16,6 +16,7 @@ import {
 } from './elements.js'
 
 export let disabledAnimations = 0
+toy.setAttribute('src', '../public/img/pos1.png')
 
 disabledButtom.onclick = () => {
     if(disabledButtom.checked){

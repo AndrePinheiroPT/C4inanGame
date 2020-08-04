@@ -202,7 +202,6 @@ html{
 }
 
 .game-home{
-    grid-row: 2/3;
     background-color: white;
     color: black;
     border-radius: 7px;
@@ -210,6 +209,100 @@ html{
     width: auto;
     margin: auto;
     text-align: center;
+}
+
+.ranking-home{
+    color: white;
+    padding: 15px;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.back{
+    width: 100px;
+    position: absolute;
+    top: 30px;
+    right: 1px;
+}
+
+.ranking-title{
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 0;
+    border-bottom: solid 3px white;
+    width: 180px;
+}
+
+.red-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background: linear-gradient(-60deg, #FFD300, #FF6C33, #D80044, #AD054F, #711C58);
+    background-size: 600%, 400%;
+    animation: animation-moviment 5s ease-in-out infinite;
+}
+
+.purple-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background: linear-gradient(-60deg, #4F2671, #7D44AA, #A971D6, #DAABF7, #E5BDFF);
+    background-size: 600%, 400%;
+    animation: animation-moviment 5s ease-in-out infinite;
+}
+
+.blue-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background: linear-gradient(-60deg, #2E77BB, #1D8ECE, #27AEE3, #9BD4F5, #6CC4EE);
+    background-size: 600%, 400%;
+    animation: animation-moviment 5s ease-in-out infinite;
+}
+
+.bronze-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background: linear-gradient(-60deg, #905923, #a46628, #b9722d, #cd7f32, #d28c47);
+    background-size: 600%, 400%;
+    animation: animation-moviment 5s ease-in-out infinite;
+}
+
+.black-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background-color: rgb(29, 29, 29);
+}
+
+
+.name-left{
+    display: grid;
+    align-self: center;
+    justify-self: start;
+}
+
+.score-right{
+    display: grid;
+    justify-self: end;
 }
 
 .coins{
