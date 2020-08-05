@@ -1,0 +1,45 @@
+<div class="container">
+    <a href="../index.html"><button class="button medium back">
+        &#8592; Voltar
+    </button></a>
+    <header>
+        <h1 class="title">
+            C4INAN <br> GAME
+        </h1>
+    </header>
+    <section class="ranking-home">
+        <h2 class="ranking-title">
+            Ranking
+        </h2>
+        {{#each redList}}
+            <div class="red-position">
+                <span class="name-left">{{name}}</span>
+                <span class="score-right">{{hightscore}}</span>
+            </div>
+        {{/each}}
+        {{#each purpleList}}
+            <div class="purple-position">
+                <span class="name-left">{{name}}</span>
+                <span class="score-right">{{hightscore}}</span>
+            </div>
+        {{/each}}
+        {{#each blueList}}
+            <div class="blue-position">
+                <span class="name-left">{{name}}</span>
+                <span class="score-right">{{hightscore}}</span>
+            </div>
+        {{/each}}
+        {{#each bronzeList}}
+            <div class="bronze-position">
+                <span class="name-left">{{name}}</span>
+                <span class="score-right">{{hightscore}}</span>
+            </div>
+        {{/each}}
+        {{#each blackList}}
+            <div class="black-position">
+                <span class="name-left">{{name}}</span>
+                <span class="score-right">{{hightscore}}</span>
+            </div>
+        {{/each}}
+    </section>
+</div>
