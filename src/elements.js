@@ -33,8 +33,6 @@ export const contact = document.querySelector('.contact')
 export const coinDiv = document.querySelector('.coins')
 export const hightscoreDiv = document.querySelector('.hightScore')
 
-toy.setAttribute('src', '../public/img/pos1.png')
-
 reloadGame.setAttribute('class', 'button medium')
 gameoverTitle.setAttribute('class', 'gameover')
 continueGame.setAttribute('class', 'button gold continue')

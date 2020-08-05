@@ -22,6 +22,72 @@ html{
     margin-left: 10px;
 }
 
+.login-toy{
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 40px;
+    margin-bottom: auto;
+    height: 290px;
+    width: 180px;
+    animation: toy 2s;
+}
+
+.form-home{
+    position: absolute;
+    height: 255px;
+    background-color: white;
+    padding: 10px;
+    color: black;
+    border-radius: 7px;
+    right: 0;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    margin-left: 20px;
+    margin-right: 20px;
+    margin-top: 230px;
+}
+
+.form-title{
+    position: absolute;
+    top: 180px;
+    right: 160px;
+}
+
+.form-pack{
+    margin: 16px 0 10px 4px;
+}
+
+.simple-phrase{
+    font-size: 13pt;
+    margin-left: 5px;
+}
+
+.registry-height{
+    height: 295px
+}
+
+.label-form{
+    padding: 9px 40px 9px 9px;
+    border-top-right-radius: 80px;
+    background-color: rgb(246, 246, 246);
+}
+
+.input-form{
+    border: none;
+    height: 35px;
+    padding: 0 0 0 9px;
+    width: 95%;
+    background-color: rgb(37, 37, 37);
+    font-family: lilita one;
+    font-size: 18pt;
+    color: white;
+}
+
 .information{
     border: none;
     height: 60px;
@@ -202,7 +268,6 @@ html{
 }
 
 .game-home{
-    grid-row: 2/3;
     background-color: white;
     color: black;
     border-radius: 7px;
@@ -210,6 +275,100 @@ html{
     width: auto;
     margin: auto;
     text-align: center;
+}
+
+.ranking-home{
+    color: white;
+    padding: 15px;
+    width: auto;
+    margin-left: 10px;
+    margin-right: 10px;
+    text-align: center;
+}
+
+.back{
+    width: 100px;
+    position: absolute;
+    top: 30px;
+    right: 1px;
+}
+
+.ranking-title{
+    margin: auto;
+    margin-bottom: 20px;
+    padding: 0;
+    border-bottom: solid 3px white;
+    width: 180px;
+}
+
+.red-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background: linear-gradient(-60deg, #FFD300, #FF6C33, #D80044, #AD054F, #711C58);
+    background-size: 600%, 400%;
+    animation: animation-moviment 5s ease-in-out infinite;
+}
+
+.purple-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background: linear-gradient(-60deg, #4F2671, #7D44AA, #A971D6, #DAABF7, #E5BDFF);
+    background-size: 600%, 400%;
+    animation: animation-moviment 5s ease-in-out infinite;
+}
+
+.blue-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background: linear-gradient(-60deg, #2E77BB, #1D8ECE, #27AEE3, #9BD4F5, #6CC4EE);
+    background-size: 600%, 400%;
+    animation: animation-moviment 5s ease-in-out infinite;
+}
+
+.bronze-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background: linear-gradient(-60deg, #905923, #a46628, #b9722d, #cd7f32, #d28c47);
+    background-size: 600%, 400%;
+    animation: animation-moviment 5s ease-in-out infinite;
+}
+
+.black-position{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    margin: 0;
+    padding: 8px;
+    font: normal 16pt lilita one;
+    background-color: rgb(29, 29, 29);
+}
+
+
+.name-left{
+    display: grid;
+    align-self: center;
+    justify-self: start;
+}
+
+.score-right{
+    display: grid;
+    justify-self: end;
 }
 
 .coins{
