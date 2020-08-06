@@ -4,26 +4,32 @@ const bcrypt = require('bcryptjs')
 class UserController{
     async store(req, res){
         const { name, password, password_confirm } = req.body
-        const errors = []
+        let error = []
         const usersList = await users.findAll({raw: true})
-
-        if(name === null || name === undefined || name === '' || name.length > 20){
-            errors.push({text: 'O seu nome é invalido!'})
-        }
-        if(password === null || password === undefined || password === '' || password.length < 6){
-            errors.push({text: 'A sua senha é invalida!'})
-        }
-        if(password != password_confirm){
-            errors.push({text: 'As senhas não coincidem!'})
-        }
-        for(let i = 0; i < usersList.length; i++){
-            if(usersList[i].name == name){
-                errors.push({text: 'Esse estelar já existe!'})
+        
+        while(true){
+            if(name === null || name === undefined || name === '' || name.length > 20){
+                error = 'O seu nome é invalido!'
                 break
             }
+            if(password === null || password === undefined || password === '' || password.length < 6){
+                error = 'A sua senha é invalida!'
+                break
+            }
+            if(password != password_confirm){
+                error = 'As senhas não coincidem!'
+                break
+            }
+            for(let i = 0; i < usersList.length; i++){
+                if(usersList[i].name == name){
+                    error = 'Esse estelar já existe!'
+                    break
+                }
+            }
+            break
         }
 
-        if(errors.length == 0){
+        if(error.length == 0){
             try{
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(password, salt, (err, hash) => {
@@ -39,8 +45,7 @@ class UserController{
                 console.log(`Hash error: ${err}`)
             }
         }else{
-            res.render('registry')
-            console.log(errors)
+            res.render('registry', {error})
         }
     }
 

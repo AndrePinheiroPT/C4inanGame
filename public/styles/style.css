@@ -15,6 +15,48 @@ html{
     font: normal 16pt lilita one;
 }
 
+.msg{
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    margin-left: 10px;
+    margin-right: 10px;
+    padding: 8px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 13pt;
+    animation: msg 7s;
+    opacity: 0;
+}
+
+.error{
+    background-color: red;
+}
+
+.success{
+    background-color: green;
+}
+
+@keyframes msg{
+    0% {
+        margin-top: 100px;
+        opacity: 0.2;
+    }
+    20% {
+        margin-top: 110px;
+        opacity: 1;
+    }
+    80% {
+        margin-top: 120px;
+        opacity: 1;
+    }
+    100% {
+        margin-top: 130px;
+        opacity: 0;
+    }
+}
+
 .title{
     padding: 10px 0px 10px 0px;
     color: white;

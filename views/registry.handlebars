@@ -8,6 +8,11 @@
         REGISTRO
     </h2>
     <img src="../img/pos1.png" class="login-toy">
+    {{#if error}}
+        <div class="msg error">
+            {{error}}
+        </div>
+    {{/if}}
     <form action="/registryUser" class="form-home registry-height" method="POST">
         <div class="form-pack">
             <label class="label-form" for="name">Nome:</label><br>

@@ -9,7 +9,12 @@
         LOGIN
     </h2>
     <img src="../img/pos1.png" class="login-toy">
-    <form action="../index.html" class="form-home" method="GET">
+    {{#if error}}
+        <div class="msg error">
+            {{error}}
+        </div>
+    {{/if}}
+    <form action="/login" class="form-home" method="POST">
         <div class="form-pack">
             <label class="label-form" for="name">Nome:</label><br>
             <input class="input-form" type="text" name="name">
