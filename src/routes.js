@@ -26,8 +26,14 @@ routes.get('/login', (req, res) => {
     res.render('login')
 })
 
+routes.get('/logout', checkLogged, (req, res) => {
+    req.logout()
+    res.redirect('/login')
+})
+
 routes.get('/ranking', userController.index)
 routes.post('/registryUser', userController.store)
+
 routes.post('/login', passport.authenticate('local', {
     successRedirect: '/game',
     failureRedirect: '/login',
