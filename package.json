@@ -1,0 +1,24 @@
+{
+  "name": "NewGame",
+  "version": "1.0.0",
+  "description": "The best game of the year",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "author": "André Pinheiro",
+  "license": "MIT",
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "body-parser": "^1.19.0",
+    "connect-flash": "^0.1.1",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.1.0",
+    "express-session": "^1.17.1",
+    "mysql2": "^2.1.0",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "sequelize": "^6.3.4",
+    "socket.io": "^2.3.0"
+  }
+}

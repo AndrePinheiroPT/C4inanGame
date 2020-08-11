@@ -1,0 +1,31 @@
+<div class="container">
+    <header>
+        <h1 class="title">
+            C4INAN <br> GAME
+        </h1>
+    </header>
+    <h2 class="form-title">
+        REGISTRO
+    </h2>
+    <img src="../img/pos1.png" class="login-toy">
+    {{#if error}}
+        <div class="msg error">
+            {{error}}
+        </div>
+    {{/if}}
+    <form action="/registryUser" class="form-home registry-height" method="POST">
+        <div class="form-pack">
+            <label class="label-form" for="name">Nome:</label><br>
+            <input class="input-form" type="text" name="name" required>
+        </div>
+        <div class="form-pack">
+            <label class="label-form" for="name">Senha:</label><br>
+            <input class="input-form" type="password" name="password" required>
+        </div>
+        <div class="form-pack">
+            <label class="label-form" for="name">Confirmar senha:</label><br>
+            <input class="input-form" type="password" name="password_confirm" required>
+        </div>
+        <button type="submit" class="button medium">Confirmar</button>
+    </form>
+</div>
