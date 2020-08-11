@@ -5,8 +5,17 @@ const UserController = require('./controllers/UserController')
 
 const userController = new UserController()
 
-routes.get('/game', (req, res) => {
-    res.render('game')
+function checkLogged(req, res, next){
+    if(req.user){
+        next()
+    }else{
+        req.flash('error_msg', 'Faça o seu login!')
+        res.redirect('/login')
+    }
+}
+
+routes.get('/game', checkLogged, (req, res) => {
+    res.render('game', { user: req.user })
 })
 
 routes.get('/registry', (req, res) => {

@@ -13,6 +13,13 @@
         <div class="msg error">
             {{error}}
         </div>
+    {{else}}
+    {{/if}}
+    {{#if error_msg}}
+        <div class="msg error">
+            {{error_msg}}
+        </div>
+    {{else}}
     {{/if}}
     <form action="/login" class="form-home" method="POST">
         <div class="form-pack">

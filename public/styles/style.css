@@ -219,7 +219,7 @@ html{
     right: 0;
     top: 0;
     bottom: 0;
-    background-image: url('./img/stars.jpg');
+    background-image: url('../img/stars.jpg');
     opacity: 0.3;
 }
 

@@ -15,7 +15,7 @@ function initialize(passport){
         if(user != null){
             bcrypt.compare(password, user.password, (err, result) => {
                 if(result){
-                    return done(null, true)
+                    return done(null, user)
                 }else{
                     return done(null, false, {message: 'A senha está incorreta!'})
                 }
@@ -32,15 +32,15 @@ function initialize(passport){
     }, authenticateUser))
 
     passport.serializeUser((user, done) => {
-        done(null, user)
+        done(null, user.id)
     })
 
-    passport.deserializeUser((name, done) => {
+    passport.deserializeUser((id, done) => {
         async function findUser(){
             try{
                 const user = await users.findOne({
                     where: {
-                        name: name
+                        id: id
                     },
                     raw: true
                 })

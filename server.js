@@ -1,15 +1,19 @@
 const express = require('express')
+const app = express()
+const http = require('http').createServer(app)
+const io = require('socket.io')(http)
+
+const { gameMiddleware, game } = require('./src/game')
+
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
 const session = require('express-session')
 const flash = require('connect-flash')
 const path = require('path')
-const app = express()
 const routes = require('./src/routes')
 const passport = require('passport')
 const initializePassport = require('./config/passport-config')
 initializePassport(passport)
-
 
 // Static Files
 app.use(express.static(path.join(__dirname, 'public')))
@@ -25,11 +29,7 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 // Session
-app.use(session({
-    secret: 'sessionID',
-    resave: false,
-    saveUninitialized: true
-}))
+app.use(session({secret: 'sessionID'}))
 
 // Passport
 app.use(passport.initialize())
@@ -39,6 +39,7 @@ app.use(passport.session())
 app.use(flash())
 
 // Middleware
+
 app.use((req, res, next) => {
     res.locals.error = req.flash('error')
     res.locals.error_msg = req.flash('error_msg')
@@ -47,11 +48,15 @@ app.use((req, res, next) => {
     next()
 })
 
+app.use(gameMiddleware)
+
+// Sockets
+game(io)
 
 // Routes
 app.use('/', routes)
 
 const PORT = 2000
-app.listen(PORT, () => {
-    console.log(`The server is running at port ${PORT}`)
+http.listen(PORT, () => {
+    console.log(`> Server is running at port ${PORT}`)
 })
