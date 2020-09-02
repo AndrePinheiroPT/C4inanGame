@@ -23,7 +23,7 @@ const game = io => {
         console.log(`> Socket ${playerId} connected`)
     
         let score = 0
-        let imageSrc = 'img/emoji2.png'
+        let imageSrc = 'img/Happy.png'
         let difficult = 'easy'
         let intervalId = 0
         let loading = 0
@@ -130,9 +130,9 @@ const game = io => {
     
             updateImages(command){
                 const imgsList = [
-                    'img/emoji2.png',
-                    'img/emoji3.png',
-                    'img/emoji4.png'
+                    'img/Sad.png',
+                    'img/Happy.png',
+                    'img/Angry.png'
                 ]
     
                 let randomIndex = Math.floor(Math.random() * 3)
@@ -226,13 +226,13 @@ const game = io => {
         socket.on('buttonPressed', ({ button }) => {
             switch(button){
                 case 'angry':
-                    imageSrc.indexOf('emoji4.png') != -1 ? notifyAll(angry) : game.gameOver()
+                    imageSrc.indexOf('Angry.png') != -1 ? notifyAll(angry) : game.gameOver()
                     break
                 case 'happy':
-                    imageSrc.indexOf('emoji3.png') != -1 ? notifyAll(happy) : game.gameOver()
+                    imageSrc.indexOf('Happy.png') != -1 ? notifyAll(happy) : game.gameOver()
                     break
                 case 'sad':
-                    imageSrc.indexOf('emoji2.png') != -1 ? notifyAll(sad) : game.gameOver()
+                    imageSrc.indexOf('Sad.png') != -1 ? notifyAll(sad) : game.gameOver()
                     break
             }
         })

@@ -55,11 +55,15 @@ rules.onclick = () => {
 }
 
 contact.onclick = () => {
+    const link = document.createElement('a')
+    link.setAttribute('href', ' https://github.com/AndrePinheiroPT/C4inanGame')
+    link.appendChild(document.createTextNode('GitHub'))
     singleTitle.appendChild(document.createTextNode('Contacto!'))
-    const text = 'Os contanctos não estão disponíveis! Aguarde até o C4INAN resolver isso!'
+    const text = 'Entre em contacto comigo! É super importante divulgar falhas encontradas no jogo e muito mais! Faça sua issue no '
     messageContent.appendChild(singleTitle)
     messageContent.appendChild(document.createTextNode(text))
-    messageContent.style.height = '80px'
+    messageContent.appendChild(link)
+    messageContent.style.height = '90px'
     
     
     container.appendChild(blackWindow)
