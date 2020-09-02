@@ -1,3 +1,7 @@
+@font-face{
+    font-family: 'lilita one';
+    src: url('lilitaone.ttf');
+}
 *{
     margin: 0;
     padding: 0;
