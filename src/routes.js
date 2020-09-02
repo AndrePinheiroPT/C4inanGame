@@ -14,6 +14,10 @@ function checkLogged(req, res, next){
     }
 }
 
+routes.get('/', (req, res) => {
+    res.redirect('/login')
+})
+
 routes.get('/game', checkLogged, (req, res) => {
     res.render('game', { user: req.user })
 })
