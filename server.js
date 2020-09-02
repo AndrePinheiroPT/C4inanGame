@@ -56,7 +56,7 @@ game(io)
 // Routes
 app.use('/', routes)
 
-const PORT = 2000
+const PORT = process.env.PORT || 8089
 http.listen(PORT, () => {
     console.log(`> Server is running at port ${PORT}`)
 })
