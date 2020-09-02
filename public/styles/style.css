@@ -10,7 +10,7 @@ html, body{
 
 html{
     scroll-behavior: smooth;
-    background-color: black;
+    background: linear-gradient(to bottom, rgb(31, 31, 31), black);
     color: white;
     font: normal 16pt lilita one;
 }
@@ -64,6 +64,12 @@ html{
     margin-left: 10px;
 }
 
+.username{
+    padding: 20px 0px 20px 0px;
+    color: white;
+    text-align: center;
+}
+
 .login-toy{
     position: absolute;
     right: 0;
@@ -98,6 +104,12 @@ html{
     position: absolute;
     top: 180px;
     right: 160px;
+    animation: form-title 2s;
+}
+
+@keyframes form-title{
+    0% {right: 140px}
+    100% {right: 160px;}
 }
 
 .form-pack{
@@ -125,6 +137,8 @@ html{
     padding: 0 0 0 9px;
     width: 95%;
     background-color: rgb(37, 37, 37);
+    border-bottom-right-radius: 20px;
+    border-top-right-radius: 20px;
     font-family: lilita one;
     font-size: 18pt;
     color: white;
@@ -321,11 +335,9 @@ html{
 
 .ranking-home{
     color: white;
-    padding: 15px;
     width: auto;
-    margin-left: 10px;
-    margin-right: 10px;
     text-align: center;
+    border-radius: 5px;
 }
 
 .back{
@@ -339,7 +351,6 @@ html{
     margin: auto;
     margin-bottom: 20px;
     padding: 0;
-    border-bottom: solid 3px white;
     width: 180px;
 }
 
