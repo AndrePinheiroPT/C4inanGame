@@ -1,8 +1,9 @@
 const Sequelize = require('sequelize')
-const db = new Sequelize('pq228fa6c5t5cl7x', 'cienr9qysd1u3a91', 'q0kltuknyuynua1k', {
-    host: 'z8dl7f9kwf2g82re.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
+const db = new Sequelize('rebrjpazb26ovbkr', 'zfzncq4q77qiip3d', 'u5r2ra00u7um4ihw', {
+    host: 'z3iruaadbwo0iyfp.cbetxkdyhwsb.us-east-1.rds.amazonaws.com',
     dialect: 'mysql'
 })
+
 
 async function connect(){
     try{
