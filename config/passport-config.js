@@ -7,7 +7,7 @@ function initialize(passport){
     async function authenticateUser(name, password, done){
         const user = await users.findOne({
             where: {
-                name: name
+                name: name.trim()
             },
             raw: true
         })
