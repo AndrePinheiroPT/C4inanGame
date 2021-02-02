@@ -2,12 +2,15 @@ const express = require('express')
 const app = express()
 const http = require('http').createServer(app)
 const io = require('socket.io')(http)
+const session = require('express-session')
+const MySQLStore = require('connect-mysql')(session)
+const passportSocketIo = require('passport.socketio')
 
-const { gameMiddleware, game } = require('./src/game')
+const game = require('./src/game')
+const { keySession, options } = require('./config/connection')
 
 const handlebars = require('express-handlebars')
 const bodyParser = require('body-parser')
-const session = require('express-session')
 const flash = require('connect-flash')
 const path = require('path')
 const routes = require('./src/routes')
@@ -29,7 +32,20 @@ app.use(bodyParser.urlencoded({extended: true}))
 app.use(bodyParser.json())
 
 // Session
-app.use(session({secret: 'sessionID'}))
+app.use(session({
+    key: 'express.sid',
+    secret: keySession,
+    resave: true,
+    saveUninitialized: true,
+    store: new MySQLStore(options)
+}))
+
+io.use(passportSocketIo.authorize({
+    cookieParser: require('cookie-parser'),
+    key: 'express.sid', 
+    secret: keySession,    
+    store: new MySQLStore(options), 
+}));
 
 // Passport
 app.use(passport.initialize())
@@ -48,7 +64,6 @@ app.use((req, res, next) => {
     next()
 })
 
-app.use(gameMiddleware)
 
 // Sockets
 game(io)

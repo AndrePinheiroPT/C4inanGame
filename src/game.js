@@ -1,22 +1,5 @@
 const users = require('../models/users')
 
-let userState
-function gameMiddleware(req, res, next){
-    if(req.user != undefined){
-        async function setUser(){
-            userState = await users.findOne({
-                where: {
-                    name: req.user.name
-                },
-                raw: true
-            })
-        }
-        setUser()
-    }
-
-    next()
-}
-
 const game = io => {
     io.on('connection', socket => {
         const playerId = socket.id
@@ -68,21 +51,23 @@ const game = io => {
     
             async updateCoins({ isGold }){
                 if(isGold){
-                    await users.update({
-                        coins: userState.coins + 1
-                    }, {
+                    let userUpdated = await users.findOne({
                         where: {
-                            name: userState.name
-                        }
-                    })
-                    userState = await users.findOne({
-                        where: {
-                            name: userState.name
+                            name: socket.request.user.name
                         },
                         raw: true
                     })
-    
-                    socket.emit('updateCoins', { coins: userState.coins })
+
+                    userUpdated.coins += 1
+                    await users.update({
+                        coins: userUpdated.coins
+                    }, {
+                        where: {
+                            name: socket.request.user.name
+                        }
+                    })
+                    
+                    socket.emit('updateCoins', { coins: userUpdated.coins })
                 }
             }
         
@@ -93,21 +78,23 @@ const game = io => {
             }
     
             async updateHightscore(command){
-                if(score > userState.hightscore){
+                if(score > socket.request.user.hightscore){
                     await users.update({
                         hightscore: score
                     }, {
                         where: {
-                            name: userState.name
+                            name: socket.request.user.name
                         }
                     })
-                    userState = await users.findOne({
+                    
+                    let userUpdated = await users.findOne({
                         where: {
-                            name: userState.name
+                            name: socket.request.user.name
                         },
                         raw: true
                     })
-                    socket.emit('updateHightscore', { hightscore: userState.hightscore })
+
+                    socket.emit('updateHightscore', { hightscore: userUpdated.hightscore })
                 }
             }
     
@@ -181,27 +168,27 @@ const game = io => {
             gameOver(){
                 loading = 0
                 clearInterval(intervalId)
-                socket.emit('gameOver', { coins: userState.coins })
+                socket.emit('gameOver', { coins: socket.request.user.coins })
             }
     
             async continueGame(){
-                if(userState.coins >= 10){
+                if(socket.request.user.coins >= 10){
                     await users.update({
-                        coins: userState.coins - 10
+                        coins: socket.request.user.coins - 10
                     }, {
                         where: {
-                            name: userState.name
+                            name: socket.request.user.name
                         }
-                    })
-                    userState = await users.findOne({
-                        where: {
-                            name: userState.name
-                        },
-                        raw: true
                     })
     
                     loading = 1
-                    socket.emit('continue', { coins: userState.coins, score, imageSrc })
+                    let userUpdated = await users.findOne({
+                        where: {
+                            name: socket.request.user.name
+                        },
+                        raw: true
+                    })
+                    socket.emit('continue', { coins: userUpdated.coins, score, imageSrc })
                     
                 }
             }
@@ -218,7 +205,7 @@ const game = io => {
         createObserver(game.levels)
         createObserver(game.reloadButtons)
         
-        socket.emit('activateColors', { hightscore: userState.hightscore })
+        socket.emit('activateColors', { hightscore: socket.request.user.hightscore })
     
         socket.on('startClicked', (state) =>  game.startGame() )
         socket.on('continueClicked', (state) => game.continueGame() )
@@ -243,7 +230,4 @@ const game = io => {
     })
 }
 
-module.exports = {
-    gameMiddleware,
-    game
-}
+module.exports = game
