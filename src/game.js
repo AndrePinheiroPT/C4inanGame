@@ -173,8 +173,15 @@ const game = io => {
     
             async continueGame(){
                 if(socket.request.user.coins >= 10){
+                    let userUpdated = await users.findOne({
+                        where: {
+                            name: socket.request.user.name
+                        },
+                        raw: true
+                    })
+                    userUpdated.coins -= 10
                     await users.update({
-                        coins: socket.request.user.coins - 10
+                        coins: userUpdated.coins
                     }, {
                         where: {
                             name: socket.request.user.name
@@ -182,12 +189,7 @@ const game = io => {
                     })
     
                     loading = 1
-                    let userUpdated = await users.findOne({
-                        where: {
-                            name: socket.request.user.name
-                        },
-                        raw: true
-                    })
+                    
                     socket.emit('continue', { coins: userUpdated.coins, score, imageSrc })
                     
                 }
