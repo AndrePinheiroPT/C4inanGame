@@ -158,7 +158,7 @@ const game = io => {
                 }
     
                 // goldProbability = 1 / 10 = 10%
-                if(Math.floor(Math.random() * 10) == 1 && !isGold){
+                if(Math.floor(Math.random() * 10) >= 2 && !isGold){
                     elements[type].isGold = 1
                     socket.emit('setGold', { type })
                 }
